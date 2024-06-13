@@ -5,3 +5,9 @@ h1{
 body{
     background-color: beige;
 }
+h2{
+    font-style: italic;
+}
+.jugyou{
+    text-align: center;
+}
