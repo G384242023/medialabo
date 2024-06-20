@@ -11,3 +11,48 @@ h2{
 .jugyou{
     text-align: center;
 }
+div#zentai{
+    display: grid;
+    flex-direction: row;
+    grid-template-columns:1fr 1fr;
+	grid-template-rows: 200px;
+	grid-gap: 100px;
+	padding: 5px;
+	width: 1024px;
+    margin: 0 auto;
+    border-radius:50px;
+}
+div.ikkai{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+div.nikai{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+div.sankai{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+div.yonkai{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+
+div.gokai{
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+h3{
+    text-align: center;
+}
