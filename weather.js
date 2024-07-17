@@ -47,7 +47,99 @@ let data = {
 
 ////////// 課題3-2 ここからプログラムを書こう
 
+console.log(data.name);
 console.log(data.main.temp_min);
 console.log(data.main.temp_max);
-console.log(data.name);
-console.log(data.weather[1]);
+console.log(data.weather[0].description);
+
+let x = document.querySelector('div#result'); 
+
+const tbl = document.createElement("table");
+  const tblBody = document.createElement("tbody");
+  
+  let row = document.createElement("tr");
+   let cell = document.createElement("td");
+      let cellText = document.createTextNode('都市');
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+  
+      
+      cell = document.createElement("td");
+       cellText = document.createTextNode('最低気温');
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      cell = document.createElement("td");
+       cellText = document.createTextNode('最高気温');
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      cell = document.createElement("td");
+       cellText = document.createTextNode('天気');
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+       row = document.createElement("tr");
+       cell = document.createElement("td");
+       cellText = document.createTextNode(data.name);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      cell = document.createElement("td");
+       cellText = document.createTextNode(data.main.temp_min);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      cell = document.createElement("td");
+       cellText = document.createTextNode(data.main.temp_max);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      cell = document.createElement("td");
+       cellText = document.createTextNode(data.weather[0].description);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+      tblBody.appendChild(row);
+
+      
+   // <tbody> を <table> の中に追加
+   tbl.appendChild(tblBody);
+   // <table> を <body> の中に追加
+   document.body.appendChild(tbl);
+   // tbl の border 属性を 2 に設定
+   tbl.setAttribute("border", "2");
+
+
+   let b = document.querySelector('#answer');
+b.addEventListener('click', printAnswer);
+
+
+// 2. イベントハンドラの定義
+
+function printAnswer() {
+    // name 属性が year の input 要素をすべて検索
+    let rs = document.querySelectorAll('input[name="toshi"]');
+    for (let r of rs) {
+        if (r.checked) {        // r が選択されていたら
+            console.log(r.value);
+        }
+    }
+  }
+
+
+   
+
+
+  
+
+
+
+
+

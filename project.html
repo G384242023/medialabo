@@ -3,14 +3,54 @@
   <head>
     <meta charset="utf-8">
     <title>世界の天気</title>
+    <link rel="stylesheet" href="project.css">
     <script src="weather.js" defer></script>
   </head>
   <body>
-    <p>◦世界の天気</p>
-    <ul>
-        <li>最低気温:9.94</li>
-        <li>最高気温: 9.94</li>
-        <li>天気: 曇りがち</li>
-        <li>都市名: 北京市</li>
-    </ul>
+    <h1>
+      <p>◦世界の天気</p>
+    </h1>
+    <p>
+      <input type="radio" name="toshi" id="Cairo" value="360630">
+      <label for="Cairo">カイロ</label>
+
+      <input type="radio" name="toshi" id="Moscow" value="524901">
+      <label for="Moscow">モスクワ</label>
+
+      <input type="radio" name="toshi" id="Johannesburg" value="993800">
+      <label for="Johannesburg">ヨハネスブルク</label>
+
+      <input type="radio" name="toshi" id="Beijing" value="1816670">
+      <label for="Beijing">北京</label>
+
+      <input type="radio" name="toshi" id="Tokyo" value="1850147">
+      <label for="Tokyo">東京</label>
+
+      <input type="radio" name="toshi" id="Singapore" value="1880252">
+      <label for="Singapore">シンガポール</label>
+
+      <input type="radio" name="toshi" id="Sydney" value="2147714">
+      <label for="Sydney">シドニー</label>
+
+      <input type="radio" name="toshi" id="London" value="2643743">
+      <label for="London">ロンドン</label>
+
+      <input type="radio" name="toshi" id="Paris" value="2968815">
+      <label for="Paris">パリ</label>
+
+      <input type="radio" name="toshi" id="Rio" value="3451189">
+      <label for="Rio">リオデジャネイロ</label>
+
+      <input type="radio" name="toshi" id="NY" value="5128581">
+      <label for="NY">ニューヨーク</label>
+
+      <input type="radio" name="toshi" id="LA" value="5368361">
+      <label for="LA">ロサンゼルス</label>
+
+  </p>
+
+  <p><button id="answer">検索</button></p>
+    <div id="result"></div>
+
   </body>
+  </html>
