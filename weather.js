@@ -47,15 +47,13 @@ let data = {
 
 ////////// 課題3-2 ここからプログラムを書こう
 
-console.log(data.name);
-console.log(data.main.temp_min);
-console.log(data.main.temp_max);
-console.log(data.weather[0].description);
 
-let x = document.querySelector('div#result'); 
 
-const tbl = document.createElement("table");
-  const tblBody = document.createElement("tbody");
+function print(data){
+
+  let tbl  = document.createElement("table");
+  let tblBody = document.createElement("tbody");
+
   
   let row = document.createElement("tr");
    let cell = document.createElement("td");
@@ -116,24 +114,109 @@ const tbl = document.createElement("table");
    // tbl の border 属性を 2 に設定
    tbl.setAttribute("border", "2");
 
+   let x = document.querySelector('div#result');
 
+   x.insertAdjacentElement('beforeend', tbl);
+}
    let b = document.querySelector('#answer');
 b.addEventListener('click', printAnswer);
 
 
-// 2. イベントハンドラの定義
+  
 
+let value = 0;
+let url;
 function printAnswer() {
-    // name 属性が year の input 要素をすべて検索
+
     let rs = document.querySelectorAll('input[name="toshi"]');
     for (let r of rs) {
         if (r.checked) {        // r が選択されていたら
-            console.log(r.value);
+            value = r.value;
         }
     }
   }
 
+  let c = document.querySelector('#answer');
+c.addEventListener('click', sendRequest);
 
+
+
+  
+  // 通信を開始する処理
+  function sendRequest() {
+    let w = document.querySelector('table');
+    if(w != undefined || w != null){
+      w.remove();
+    }
+      // URL を設定
+      if(value==360630){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/360630.json';
+      }
+      if(value==524901){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/524901.json';
+      }
+      if(value==993800){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/993800.json';
+      }
+      if(value==1816670){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/1816670.json';
+      }
+      if(value==1850147){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/1850147.json';
+      }
+      if(value==1880252){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/1880252.json';
+      }
+      if(value==2147714){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/2147714.json';
+      }
+      if(value==2643743){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/2643743.json';
+      }
+      if(value==2968815){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/2968815.json';
+      }
+      if(value==3451189){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/3451189.json';
+      }
+      if(value==5128581){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/5128581.json';
+      }
+      if(value==5368361){
+        url = 'https://www.nishita-lab.org/web-contents/jsons/openweather/5368361.json';
+      }
+       
+  
+      // 通信開始
+      axios.get(url)
+          .then(showResult)   // 通信成功
+          .catch(showError)   // 通信失敗
+          .then(finish);      // 通信の最後の処理
+                 
+                 
+}
+  // 通信が成功した時の処理
+  function showResult(resp) {
+      // サーバから送られてきたデータを出力
+      let data = resp.data;
+  
+      // data が文字列型なら，オブジェクトに変換する
+      if (typeof data === 'string') {
+          data = JSON.parse(data);
+      }
+
+      print(data);
+  }
+  
+  // 通信エラーが発生した時の処理
+  function showError(err) {
+      console.log(err);
+  }
+  
+  // 通信の最後にいつも実行する処理
+  function finish() {
+      console.log('Ajax 通信が終わりました');
+  }
    
 
 
